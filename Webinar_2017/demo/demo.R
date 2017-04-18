@@ -64,3 +64,46 @@ plot(x[1:30], fit = f)
 
 library(incidence.ui)
 incidence_ui()
+
+
+
+
+
+
+#######################
+## epicontacts example ##
+#######################
+
+library("epicontacts")
+
+
+## check inputs
+
+head(mers_korea_2015$linelist)
+dim(mers_korea_2015$linelist)
+
+head(mers_korea_2015$contacts)
+dim(mers_korea_2015$contacts)
+
+
+
+## make object and plot
+
+x <- make_epicontacts(mers_korea_2015$linelist,
+                      mers_korea_2015$contacts,
+                      directed = TRUE)
+
+plot(x, "sex")
+
+
+
+## extract serial interval distribution
+
+SI <- get_pairwise(x, "dt_onset")
+SI
+
+summary(SI)
+
+hist(SI, col = "grey", border = "white",
+     main = "Serial interval distribution",
+     nclass = 20)
