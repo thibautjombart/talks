@@ -13,10 +13,11 @@ devtools::install_github("reconhub/epicontacts")
 
 ## for the GUI
 
+deps <- c("Depends", "Imports", "Suggests")
 install.packages("shinyjs")
-devtools::install_github("reconhub/shinyHelpers")
-devtools::install_github("reconhub/RECON.ui")
-devtools::install_github("reconhub/incidence.ui")
+devtools::install_github("reconhub/shinyHelpers", dependencies = deps)
+devtools::install_github("reconhub/RECON.ui", dependencies = deps)
+devtools::install_github("reconhub/incidence.ui", dependencies = deps)
 
 
 
