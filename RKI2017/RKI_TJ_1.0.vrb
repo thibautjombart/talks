@@ -1,0 +1,22 @@
+\frametitle{Thanks}
+
+  %% \begin{block}{Thanks to:}
+    \begin{itemize}
+    \item \textbf{Conference organisers}
+    \item \textbf{Colleagues:} Anne Cori, Pierre Nouvellet, Tini Garske, Hervé Bourhy, Emmanuel Nakouné
+    \item \textbf{Groups:} WHO Ebola Response Team, Hackout 1/2/3, RECON members, GOARN
+    \item \textbf{funding:} HPRU-NIHR, MRC
+    \end{itemize}
+  %% \end{block}
+
+  \begin{center}
+    \includegraphics[width=.4\textwidth]{figs/recon-logo}
+
+    {\small \emph{\url{www.repidemicsconsortium.org}}}
+    ~\\
+    ~\\
+
+    {\Large \alert{\emph{vimes}}}\\
+    {\small \emph{\url{www.repidemicsconsortium.org/vimes}}}
+  \end{center}
+

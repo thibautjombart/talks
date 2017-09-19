@@ -1,0 +1,520 @@
+\documentclass[Xcolor=svgnames,mathserif]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[english]{babel}
+% pour les images
+\usepackage{graphicx}
+% pour les espaces entre les lignes : 1, 1.5, 2
+\usepackage{setspace}
+% pour les marges
+\usepackage{geometry}
+%infos générales du document
+\usepackage{amsmath,amsfonts}
+% pour les couleurs
+\usepackage{color}
+% pour mettre des url
+\usepackage{url}
+% pour les schémas
+\usepackage[all]{xy}
+% for bold symbols in mathmode
+\usepackage{bm}
+% biblio exotique
+\usepackage{natbib}
+
+\usetheme{metropolis}
+
+% Customisation of the metropolis theme
+\definecolor{deeppurple}{HTML}{29293D}
+\definecolor{lightpurple}{HTML}{B3B3CC}
+\definecolor{medpurple}{HTML}{666699}
+
+\definecolor{deepblue}{HTML}{19194D}
+\definecolor{medblue}{HTML}{333399}
+\definecolor{lightblue}{HTML}{B3B3E6}
+
+
+\definecolor{mygreen}{HTML}{3E750A}
+\definecolor{mypink}{HTML}{B30047}
+%% \definecolor{mypink}{HTML}{CC0052}
+
+\setbeamercolor{normal text}{fg=deeppurple}
+\setbeamercolor{frametitle}{bg=deeppurple}
+\setbeamercolor{example text}{fg=mypink}
+\setbeamercolor{accent text}{fg=myblue}
+\setbeamercolor{alerted text}{fg=mypink}
+\setbeamercolor{progress bar}{fg=mypink}
+
+\metroset{sectionpage=progressbar, subsectionpage=none, progressbar=frametitle}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\m}[1]{\mathbf{#1}}
+\newcommand{\Rlogo}{\includegraphics[width=0.05\textwidth]{figs/Rlogo-transp}~}
+%% \newcommand{\outbreakerlogo}{\raisebox{-0.3mm}{\includegraphics[width=0.25\textwidth]{figs/logo-w300}}~}
+%% \newcommand{\outbreakerlogotitle}{\includegraphics[width=.4\textwidth]{figs/logo-w300}~}
+
+% \title[A community for outbreak response tools]{Building a community for the development of outbreak response tools}
+
+\title[R Epidemics Consortium]{\includegraphics[width=.4\textwidth]{figs/recon-logo.png}}
+
+\subtitle{Building the next generation of statistical tools for outbreak response using R}
+
+\author[T. Jombart]{Thibaut Jombart}
+
+\institute{Imperial College London\\MRC Centre for Outbreak Analysis and Modelling}
+\date{7th September 2017}
+
+% \institute[Imperial College London]{\tiny{MRC Centre for Outbreak Analysis and Modelling \\ Imperial College London}}
+% \date[27-06-2014]{~\\3$^e$ rencontres \Rlogo --- Montpellier 27th June 2014}
+
+
+
+%% \AtBeginSection[]
+%% {
+%%  \begin{frame}<beamer>
+%%    \frametitle{Outline}
+%%    % \tableofcontents[currentsection,currentsubsection]
+%%    \tableofcontents[currentsection]
+%%  \end{frame}
+%% }
+
+% 
+% % \addtobeamertemplate{footline}{\hfill\insertframenumber/\inserttotalframenumber\hspace{1em}\vspace{.5em}\null}
+% \addtobeamertemplate{footline}{\hfill\vspace{-.35cm}\insertframenumber/\inserttotalframenumber\hspace{1cm}\null}
+% 
+
+\usebackgroundtemplate{
+\vspace{-2.5cm}\hspace{-.75cm}\includegraphics[width=1.3\textwidth]{background.png}
+}
+
+
+
+
+\begin{document}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{~}
+  \vspace{-.3cm}
+%% \includegraphics[width=0.2\textwidth]{figs/logoMRC}\hspace*{0.6\textwidth}\includegraphics[width=0.2\textwidth]{figs/IClogotransp}\\
+%% \vspace{.3cm}
+  \titlepage
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \begin{frame}{Outline}
+%%   \setbeamertemplate{section in toc}[sections numbered]
+%%   \tableofcontents[hideallsubsections]
+%% \end{frame}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The R Epidemics Consortium}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Lessons learnt from the Ebola response}
+
+  \vspace{-1cm}
+\begin{center} 
+
+\only<1>{\includegraphics[width=.9\textwidth]{figs/motivation1}}\only<2>{\includegraphics[width=.9\textwidth]{figs/motivation2}}\only<3->{\includegraphics[width=.9\textwidth]{figs/motivation3}}
+
+
+\visible<4>{\emph{Most statistical/modelling tools for situation awareness were missing.}}
+
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Who do we need to develop these tools?}
+
+\vspace{-.5cm}
+\begin{center} 
+
+\only<1>{\includegraphics[width=.8\textwidth]{figs/worlds1}}\only<2>{\includegraphics[width=.8\textwidth]{figs/worlds2}}\only<3>{\includegraphics[width=.8\textwidth]{figs/worlds3}}\only<4->{\includegraphics[width=.8\textwidth]{figs/worlds4}}
+
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{From a hack to a pack}
+
+\vspace{-.3cm}
+\begin{center} 
+\only<1>{\includegraphics[width= \textwidth]{figs/reconbirth1}}\only<2>{\includegraphics[width= \textwidth]{figs/reconbirth2}}\only<3>{\includegraphics[width= \textwidth]{figs/reconbirth3}}\only<4->{\includegraphics[width= \textwidth]{figs/reconbirth4}}
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{RECON: the \textbf{R} \textbf{E}pidemics \textbf{Con}sortium}
+  
+  %% \vspace{-.2cm}
+\small A taskforce to build a new generation of outbreak response tools in \Rlogo.
+
+%  \vspace{-.3cm}
+\begin{center} 
+\includegraphics[width=.75 \textwidth]{figs/recon}
+~\\
+{\tiny \emph{\url{www.repidemicsconsortium.org}}}
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{In a nutshell}
+
+  \includegraphics[width=.5 \textwidth]{figs/recon-logo}
+  ~\\
+  \emph{\url{www.repidemicsconsortium.org}}
+
+ \begin{itemize}
+ 
+ \item started 6th September 2016 
+%   \pause
+ \vspace{.2cm}
+ \item $\sim$70 members
+%   \pause
+ \vspace{.2cm}
+ \item 17 countries, $>$ 40 institutions
+%   \pause
+ \vspace{.2cm}
+ \item $\sim$ 3 packages released, 20 under development
+%   \pause
+ \vspace{.2cm}
+ \item public forum, blog, online resources
+\end{itemize}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \begin{frame}[fragile]
+%%   \frametitle{The RECON forum}
+
+%% \begin{center}
+%% A platform for discussing epidemics analysis in \Rlogo.
+
+%%   \includegraphics[width=.9\textwidth]{figs/forum}\\
+%% \vspace{-.35cm}
+%% {\tiny \emph{\url{www.repidemicsconsortium.org/forum}}}
+%% \pause
+%% ~\\
+%% \huge{\alert{Join us!}}
+
+%% \end{center}
+
+
+%% \end{frame}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{RECON: activities}
+
+  \begin{block}{Statistical software}
+    \begin{itemize} 
+    \item \alert{efficiency}: useful for improving situation awareness in real time
+      %% \pause
+      \vspace{.1cm}
+    \item \alert{reliability}: outputs can be trusted
+      %% \pause
+      \vspace{.1cm}
+    \item \alert{accessibility}: widely available, easy learning curve
+    \end{itemize}
+  \end{block}
+
+  \pause
+  
+  \begin{block}{Translation}
+    \begin{itemize} 
+    \item \alert{disseminating knowledge}: free online training material,
+      involvement with FETPs, workshops
+      %% \pause
+      \vspace{.1cm}
+    \item \alert{supporting response}: portable data analysis environment, deployment to the field 
+    \end{itemize}
+  \end{block}
+
+  
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reconstructing outbreaks from epidemiological and genetic data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Who infects whom? Many answers for a single question}
+
+\begin{center}
+
+  \vspace{-1cm}\hspace{-1cm}
+  \only<1>{\resizebox{1.1\textwidth}{!}{\includegraphics{figs/outbreakmethods1}}}\only<2>{\resizebox{1.1\textwidth}{!}{\includegraphics{figs/outbreakmethods2}}}\only<3>{\resizebox{1.1\textwidth}{!}{\includegraphics{figs/outbreakmethods3}}}\only<4>{\resizebox{1.1\textwidth}{!}{\includegraphics{figs/outbreakmethods4}}}\only<5>{\resizebox{1.1\textwidth}{!}{\includegraphics{figs/outbreakmethods5}}}\only<6->{\resizebox{1.1\textwidth}{!}{\includegraphics{figs/outbreakmethods6}}}
+
+\end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Are different methods really... different?}
+
+\begin{center}
+
+  \includegraphics[width=.3\textwidth]{figs/wheel}
+  
+\end{center}
+
+\small
+
+Different models are often structurally similar, and can lead to near identical
+implementations.
+  
+\pause
+\begin{itemize}
+\item $a,b,c$: different types of data
+\item $\theta$: parameters / augmented data
+\end{itemize}
+
+Likelihood components are often treated as \emph{conditionally independent} \alert{modules}:
+$$
+p(a,b,c | \theta) = p(a|\theta) p(b|\theta) p(c|\theta) 
+$$
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\textit{outbreaker2}: a general tool for outbreak reconstruction}
+% \vspace{-.5cm}
+
+A \alert{modular} framework for outbreak reconstruction: bring your own data, prior, likelihood, MCMC.
+
+\begin{center}
+  
+\only<1>{\resizebox{0.85\textwidth}{!}{\includegraphics{figs/outbreaker2idea1}}}\only<2>{\resizebox{0.85\textwidth}{!}{\includegraphics{figs/outbreaker2idea2}}}\only<3->{\resizebox{0.85\textwidth}{!}{\includegraphics{figs/outbreaker2idea3}}}
+
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{Example: implementing \textit{TransPhylo} in \textit{outbreaker2}}
+  % \vspace{-.5cm}
+  \begin{block}{\textit{outbreaker} likelihood}
+    \begin{itemize}
+    \item $p(s, t | \alpha, T^{inf}, \kappa, \mu, \pi) =  p(T^{inf} | \alpha, \kappa) p(T^{inf} | t) p(s | \alpha, \kappa, \mu) p(\kappa | \pi)$
+    \item i.e. \textit{timing infection} x \textit{incubation} x \textit{genetic (simple)} x \textit{missing cases}
+    \end{itemize}
+  \end{block}
+
+  \pause
+  \begin{block}{\textit{TransPhylo} likelihood}
+    \begin{itemize}
+    \item $p(G | \beta, \gamma, N_eg, \alpha ) = p(G | N_eg, \alpha) \times p(\alpha | \beta, \gamma) $
+    \item i.e. \textit{phylogeny (coalescent)} x \textit{SIR}
+    \end{itemize}
+  \end{block}
+
+  \pause \alert{Can we combine the two models?}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{\textit{TransPhylo} module for \textit{outbreaker2}}
+             {\small [implementation by Xavier Didelot]}
+  \vspace{-.5cm}
+
+             
+\begin{center}
+  \only<1>{\resizebox{0.95\textwidth}{!}{\includegraphics{figs/transphylomodule1}}}\only<2>{\resizebox{0.95\textwidth}{!}{\includegraphics{figs/transphylomodule2}}}\only<3>{\resizebox{0.95\textwidth}{!}{\includegraphics{figs/transphylomodule3}}}\only<4>{\resizebox{0.95\textwidth}{!}{\includegraphics{figs/transphylomodule4}}}\only<5->{\resizebox{0.95\textwidth}{!}{\includegraphics{figs/transphylomodule5}}}
+
+\end{center}
+
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]
+  \frametitle{}
+
+  \begin{block}{Thanks to:}
+    \begin{itemize}
+    \item \textbf{Conference organisers}
+    \item \textbf{Colleagues:} Rich Fitzjohn, Anne Cori, Finlay Campbell, Xavier Didelot, James Hayward, Lucy Weinerd, Neil Ferguson
+    \item \textbf{Groups:} WHO Ebola Response Team, Hackout 1/2/3, RECON members, GOARN
+    \item \textbf{funding:} HPRU-NIHR, MRC
+    \end{itemize}
+  \end{block}
+
+  \begin{center}
+    \includegraphics[width=.4\textwidth]{figs/recon-logo}
+    
+    {\small \emph{\url{www.repidemicsconsortium.org}}}
+    ~\\
+    ~\\
+
+    {\Large \alert{\emph{outbreaker2}}}\\
+    {\small \emph{\url{www.repidemicsconsortium.org/outbreaker2}}}
+  \end{center}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
