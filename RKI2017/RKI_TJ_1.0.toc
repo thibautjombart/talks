@@ -1,4 +1,0 @@
-\beamer@endinputifotherversion {3.36pt}
-\select@language {english}
-\beamer@sectionintoc {1}{The R Epidemics Consortium}{5}{0}{1}
-\beamer@sectionintoc {2}{An integrative approach for outbreak detection}{25}{0}{2}
